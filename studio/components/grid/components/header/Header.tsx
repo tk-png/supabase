@@ -5,7 +5,6 @@ import { saveAs } from 'file-saver'
 import { useStore } from 'hooks'
 import FilterDropdown from './filter'
 import SortPopover from './sort'
-import StatusLabel from './StatusLabel'
 import RefreshButton from './RefreshButton'
 import { confirmAlert } from 'components/to-be-cleaned/ModalsDeprecated/ConfirmModal'
 import { Sort, Filter } from 'components/grid/types'
@@ -41,10 +40,7 @@ const Header: FC<HeaderProps> = ({ sorts, filters, onAddColumn, onAddRow, header
           onAddRow={onAddRow}
         />
       )}
-      <div className="sb-grid-header__inner">
-        {headerActions}
-        <StatusLabel />
-      </div>
+      <div className="sb-grid-header__inner">{headerActions}</div>
     </div>
   )
 }
@@ -112,12 +108,13 @@ const RowHeader: FC<RowHeaderProps> = ({ sorts, filters }) => {
   }
 
   const onRowsDelete = () => {
+    const numRows = allRowsSelected ? totalRows : selectedRows.size
     confirmAlert({
       title: 'Confirm to delete',
-      message: `Are you sure you want to delete the selected ${selectedRows.size} row${
-        selectedRows.size > 1 ? 's' : ''
+      message: `Are you sure you want to delete the selected ${numRows} row${
+        numRows > 1 ? 's' : ''
       }? This action cannot be undone.`,
-      confirmText: `Delete ${selectedRows.size} rows`,
+      confirmText: `Delete ${numRows} rows`,
       onAsyncConfirm: async () => {
         if (allRowsSelected) {
           const { error } =
@@ -136,7 +133,7 @@ const RowHeader: FC<RowHeaderProps> = ({ sorts, filters }) => {
         } else {
           const rowIdxs = Array.from(selectedRows) as number[]
           const rows = allRows.filter((x) => rowIdxs.includes(x.idx))
-          const { error } = state.rowService!.delete(rows)
+          const { error } = await state.rowService!.delete(rows)
           if (error) {
             if (state.onError) state.onError(error)
           } else {

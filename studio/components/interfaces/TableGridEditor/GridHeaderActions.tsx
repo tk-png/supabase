@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 import { Button, IconAlertCircle, IconLock } from 'ui'
-import { PostgresPolicy, PostgresTable } from '@supabase/postgres-meta'
+import type { PostgresPolicy, PostgresTable } from '@supabase/postgres-meta'
 
 import { useStore } from 'hooks'
 
@@ -31,7 +31,9 @@ const GridHeaderActions: FC<Props> = ({ table }) => {
             {/* RLS {table.rls_enabled ? 'is' : 'not'} enabled */}
             {!table.rls_enabled
               ? 'RLS is not enabled'
-              : `${policies.length} active RLS polic${policies.length > 1 ? 'ies' : 'y'}`}
+              : `${policies.length == 0 ? 'No' : policies.length} active RLS polic${
+                  policies.length > 1 || policies.length == 0 ? 'ies' : 'y'
+                }`}
           </Button>
         </a>
       </Link>

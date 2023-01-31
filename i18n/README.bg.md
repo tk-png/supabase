@@ -27,7 +27,7 @@
 
 За пълната документация посетете [supabase.com/docs](https://supabase.com/docs)
 
-За да видите как да допринасяте, посетете [Getting Started](./DEVELOPERS.md)
+За да видите как да допринасяте, посетете [Getting Started](../DEVELOPERS.md)
 
 ## Общност & поддръжка
 
@@ -116,8 +116,8 @@ Supabase е [хоствана платформа](https://app.supabase.com). М�
     <td><a href="https://github.com/supabase-community/storage-csharp" target="_blank" rel="noopener noreferrer">storage-csharp</a></td>
   </tr>
   <tr>
-    <td>Dart (Flutter)</td>
-    <td><a href="https://github.com/supabase/supabase-dart" target="_blank" rel="noopener noreferrer">supabase-dart</a></td>
+    <td>Flutter</td>
+    <td><a href="https://github.com/supabase/supabase-flutter" target="_blank" rel="noopener noreferrer">supabase-dart</a></td>
     <td><a href="https://github.com/supabase/postgrest-dart" target="_blank" rel="noopener noreferrer">postgrest-dart</a></td>
     <td><a href="https://github.com/supabase/gotrue-dart" target="_blank" rel="noopener noreferrer">gotrue-dart</a></td>
     <td><a href="https://github.com/supabase/realtime-dart" target="_blank" rel="noopener noreferrer">realtime-dart</a></td>

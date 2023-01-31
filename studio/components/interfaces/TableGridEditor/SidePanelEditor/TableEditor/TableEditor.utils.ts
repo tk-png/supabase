@@ -1,5 +1,5 @@
 import { some } from 'lodash'
-import { PostgresColumn, PostgresTable } from '@supabase/postgres-meta'
+import type { PostgresColumn, PostgresTable } from '@supabase/postgres-meta'
 
 import { ImportContent, TableField } from './TableEditor.types'
 import { DEFAULT_COLUMNS } from './TableEditor.constants'
@@ -29,7 +29,7 @@ export const generateTableField = (): TableField => {
     name: '',
     comment: '',
     columns: DEFAULT_COLUMNS,
-    isRLSEnabled: false,
+    isRLSEnabled: true,
     isRealtimeEnabled: false,
   }
 }
